@@ -62,10 +62,10 @@ app.get('/api/profile', function profile_show(req, res){
     name: "Star",
     class: "WDI 33",
     location: "San Francisco, CA",
-    hobbies: ["arts", "crafts"],
+    hobbies: ["Arts", "Crafts"],
     github_url: "https://www.github.com/myungok-star",
     portfolio_url: "https://www.github.com/myungok-star/myungok-star.github.io",
-    favorite_iceCream: "Vanilla"
+    favorite_movie: "Little Miss Sunshine"
   });
 
 });
