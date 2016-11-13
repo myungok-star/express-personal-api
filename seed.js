@@ -3,16 +3,17 @@
 
 var db = require('./models');
 
-// var new_Animation = {description: "new animation movie"}
+// var new_Animation = {
+//         description: "new animation movie"
+//     }
 //
-// db.Animation.create(new_Animation, function(err, Animation){
-// if (err){
-// return console.log("Error:", err);
-// }
-//
-// //   console.log("Created new campsite", campsite._id)
-// //   process.exit(); // we're all done! Exit the program.
-// // })
+// db.Animation.create(new_Animation, function(err, Animation) {
+//     if (err) {
+//         return console.log("Error:", err);
+//     }
+//     console.log("Created new animation", animation._id)
+//     process.exit(); // we're all done! Exit the program.
+// })
 
 
 var animation_list = [
@@ -75,5 +76,18 @@ var animation_list = [
     studio: "Illuminiation Entertainment",
     poster: "http://www.imdb.com/title/tt1323594/mediaviewer/rm818119168",
     releaseDate: "July 9, 2010",
+
   },
 ]
+
+db.Animation.remove({}, function(err, animation) {
+  console.log('removed all animation');
+  db.Animation.create(animation_list, function(err, animation){
+    if (err) {
+      console.log(err);
+      return;
+    }
+    console.log('recreated all animation');
+    console.log("created", animation.length, "animation");
+  });
+});
