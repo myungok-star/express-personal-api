@@ -6,8 +6,9 @@ var Schema = mongoose.Schema;
 var AnimationSchema = new Schema({
   title: String,
   studio: String,
-  image: String,
+  poster: String,
   releaseDate: String,
+  starLikes: Boolean,
 });
 
 //create the Animation model from the schema
