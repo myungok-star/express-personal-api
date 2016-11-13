@@ -1,6 +1,7 @@
 
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+var Studio = require('./studio');
 
 //create a schema for disney movies
 var AnimationSchema = new Schema({
@@ -8,7 +9,6 @@ var AnimationSchema = new Schema({
   studio: String,
   poster: String,
   releaseDate: String,
-  starLikes: Boolean,
 });
 
 //create the Animation model from the schema

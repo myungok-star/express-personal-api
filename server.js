@@ -52,7 +52,7 @@ app.get('/api', function api_index(req, res) {
     endpoints: [
       {method: "GET", path: "/api", description: "Describes all available endpoints"},
       {method: "GET", path: "/api/profile", description: "Data about me"}, // CHANGE ME
-      {method: "POST", path: "/api/campsites", description: "E.g. Create a new campsite"} // CHANGE ME
+      {method: "POST", path: "/api/animation", description: "E.g. Create a new animation movie"} // CHANGE ME
     ]
   })
 });
@@ -61,15 +61,23 @@ app.get('/api/profile', function profile_show(req, res){
   res.json({
     name: "Star",
     class: "WDI 33",
-    location: "San Francisco, CA",
-    hobbies: ["Arts", "Crafts"],
-    github_url: "https://www.github.com/myungok-star",
+    currentCity: "San Francisco, CA",
+    hobbies: [
+      "Arts",
+      "Crafts"],
+    githubLink: "https://www.github.com/myungok-star",
     portfolio_url: "https://www.github.com/myungok-star/myungok-star.github.io",
-    favorite_movie: "Little Miss Sunshine"
   });
 
 });
 
+app.post('/api/animation', function animation_like(req, res) {
+  //send all animation as JSON response
+  db.Animation.find(function(err, animation) {
+    if (err) {return console.log("index error: " + err); }
+    res.json(animation);
+  });
+});
 
 /**********
  * SERVER *
