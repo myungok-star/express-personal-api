@@ -31,7 +31,7 @@ var animation_list = [
   },
   {
     title: "Coraline",
-    studio: "Laika Entertainment, LLC",
+    studio: "Laika Entertainment",
     poster: "http://www.imdb.com/title/tt0327597/mediaviewer/rm1274647808",
     releaseDate: "February 6, 2009"
   },
@@ -78,6 +78,49 @@ var animation_list = [
     releaseDate: "July 9, 2010",
 
   },
+]
+
+var studio_list = [
+{
+  name: "Walt Disney Studios",
+  location: "California, USA",
+}
+{
+  name: "Aardman Animations"
+  location: "Bristol, UK"
+}
+{
+  name: "Illuminiation Entertainment",
+  location: "California, USA"
+}
+{
+  name: "Sony Pictures Animation",
+  location: "California, USA"
+}
+{
+  name: "DreamWorks Animation",
+  location: "California, USA"
+}
+{
+  name: "Blue Sky Studios",
+  location: "Connecticut, USA"
+}
+{
+  name: "Warner Bros. Animation",
+  location: "California, USA"
+}
+{
+  name: "Starburns Industries",
+  location: "California, USA"
+}
+{
+  name: "Pixar Animation Studios",
+  location: "California, USA"
+}
+{
+  name: "Laika Entertainment",
+  location: "Oregon, USA"
+}
 ]
 
 db.Animation.remove({}, function(err, animation) {

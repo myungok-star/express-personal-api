@@ -2,7 +2,9 @@ var mongoose = require('mongoose'),
   Schema = mongoose.Schema;
 
 var StudioSchema = new Schema({
-  name: String
+  name: String,
+  location: String,
+  founded: String
 });
 
 var Studio = mongoose.model('Studio', StudioSchema);
