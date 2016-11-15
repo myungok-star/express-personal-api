@@ -17,7 +17,7 @@
     <!-- APPLICATION SCRIPTS -->
     <script src="/scripts/app.js"></script>
   </head>
-  <body>
+  <!-- <body>
     <div class="container">
       <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -28,5 +28,59 @@
         </div>
       </div>
     </div>
-  </body>
+  </body> -->
+
+  <body>
+  <div class="container">
+    <h1 class="text-center">Star Kim's API</h1>
+    <h4><a href="/api">Read My API Documentation</a></h4>
+    
+    <div class="row">
+      <div class="col-md-10 col-md-offset-2">
+        <form class="form-inline" id="newAnimationForm">
+          <div class="form-group">
+            <label for="title">Animation Movie</label>
+            <input type="text" class="form-control" name="title" placeholder="Animation Title">
+          </div>
+          <div class="form-group">
+            <label for="title">Studio</label>
+            <input type="text" class="form-control" name="studio" placeholder="Animation Studio">
+          </div>
+          <div class="form-group">
+            <label for="title">Characters</label>
+            <input type="text" class="form-control" name="characters[name]" placeholder="Animation Character 1">
+            <input type="text" class="form-control" name="characters[name]" placeholder="Animation Character 2">
+          </div>
+          <!-- TODO: When a button is pressed, prevent default, then use an ajax request to send the data to the appropriate api endpoint -->
+          <button type="submit" class="btn btn-default">Create Animation Movie</button>
+        </form>
+        <div id='animationTarget'>
+          <!-- handlebars template -->
+          <script id="animation-template" type="text/x-handlebars-template">
+            {{#each animation}}
+            <hr>
+            <p>
+              <b>{{title}}</b>
+              by {{studio.name}}
+              <br>
+              <b>Characters:</b>
+              {{#each characters}}
+                {{name}}
+              {{/each}}
+              <button type="button" name="button" class="deleteBtn btn btn-danger pull-right" data-id={{_id}}>Delete</button>
+            </p>
+            <form class="form-inline" id="addCharacterForm" data-id={{_id}}>
+              <div class="form-group">
+                <input type="text" class="form-control" name="name" placeholder="Animation character">
+              </div>
+              <!-- TODO: When a button is pressed, prevent default, then use an ajax request to send the data to the appropriate api endpoint -->
+              <button type="submit" class="btn btn-default">Add Characters</button>
+            </form>
+            {{/each}}
+          </script>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
 </html>
