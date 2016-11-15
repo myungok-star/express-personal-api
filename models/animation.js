@@ -3,10 +3,13 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var Studio = require('./studio');
 
-//create a schema for disney movies
+//create a schema for animation movies
 var AnimationSchema = new Schema({
   title: String,
-  studio: String,
+  studio: {
+    type: Schema.Types.ObjectsId,
+    ref: 'Studio'
+  }
   poster: String,
   releaseDate: String,
 });

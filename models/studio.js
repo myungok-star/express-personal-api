@@ -4,7 +4,6 @@ var mongoose = require('mongoose'),
 var StudioSchema = new Schema({
   name: String,
   location: String,
-  founded: String
 });
 
 var Studio = mongoose.model('Studio', StudioSchema);
