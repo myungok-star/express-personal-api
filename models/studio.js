@@ -1,9 +1,10 @@
-var mongoose = require('mongoose'),
-  Schema = mongoose.Schema;
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
+
 
 var StudioSchema = new Schema({
   name: String,
-  location: String,
+  location: String
 });
 
 var Studio = mongoose.model('Studio', StudioSchema);

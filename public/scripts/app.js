@@ -12,7 +12,7 @@ $(document).ready(function(){
 //     //TODO: prevent default Here
 //
 //     //TODO: create an ajax request to send data to backend server.
-
+``
 
       $animationList = $('#animationTarget');
 
@@ -22,7 +22,7 @@ $(document).ready(function(){
 
       $.ajax({
         method: 'GET',
-        url: '/api/animation',
+        url: '/api/animations',
         success: handleSuccess,
         error: handleError
       });
@@ -32,7 +32,7 @@ $(document).ready(function(){
         console.log('new animation serialized', $(this).serializeArray());
         $.ajax({
           method: 'POST',
-          url: '/api/animation',
+          url: '/api/animations',
           data: $(this).serializeArray(),
           success: newAnimationSuccess,
           error: newAnimationError
@@ -43,7 +43,7 @@ $(document).ready(function(){
         console.log('clicked delete button to', '/api/animation/'+$(this).attr('data-id'));
         $.ajax({
           method: 'DELETE',
-          url: '/api/animation/'+$(this).attr('data-id'),
+          url: '/api/animations/'+$(this).attr('data-id'),
           success: deleteAnimationSuccess,
           error: deleteAnimationError
         });
@@ -54,8 +54,8 @@ $(document).ready(function(){
         console.log('new characters');
         $.ajax({
           method: 'POST',
-          url: '/api/animation/'+$(this).attr('data-id')+'/characters',
-          data: $(this).serializeArray(),
+          url: '/api/animations/'+$(this).attr('data-id')+'/characters',
+          data: $(this).serialize(),
           success: newCharacterSuccess,
           error: newCharacterError
         });
@@ -69,14 +69,16 @@ $(document).ready(function(){
       // empty existing posts from view
       $animationList.empty();
 
-      // pass `allBooks` into the template function
-      var animationHtml = template({ animation: allAnimationMovies });
+      // pass `allAnimationMovies` into the template function
+      var animationHtml = template({ animations: allAnimationMovies });
+      console.log(animationHtml)
 
       // append html to the view
       $animationList.append(animationHtml);
     }
 
     function handleSuccess(json) {
+      console.log(json);
       allAnimationMovies = json;
       render();
     }

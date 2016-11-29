@@ -1,7 +1,7 @@
 
 //require mongoose
 var mongoose = require("mongoose");
-//connects to a book-app database
+//connects to a personal-api-app database
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/personal-api");
 
 //import and export my Animation model
